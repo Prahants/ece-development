@@ -6,7 +6,7 @@ import heroImage from '../assets/heroHead.png';
 
 export const Hero = () => {
   return (
-    <section className="relative w-full max-w-[1400px] mx-auto px-4 sm:px-8 pt-6 pb-20 md:pt-10 md:pb-32 z-20">
+    <section id="home" className="relative w-full max-w-[1400px] mx-auto px-4 sm:px-8 pt-6 pb-20 md:pt-10 md:pb-32 z-20">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
         {/* Left Column: Text Content */}
         <div className="w-full min-w-0 flex flex-col items-start text-left">
