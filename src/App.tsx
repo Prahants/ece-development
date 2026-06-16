@@ -2,7 +2,7 @@ import React from 'react';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { VisionSection } from './components/VisionSection';
-import { CapabilitiesSection } from './components/CapabilitiesSection';
+import { FeaturesSection } from './components/FeaturesSection';
 import { AboutSection } from './components/AboutSection';
 import { AchievementsSection } from './components/AchievementsSection';
 import { ContactSection } from './components/ContactSection';
@@ -17,7 +17,7 @@ function App() {
       <main className="flex-1 w-full flex flex-col relative z-10 pt-[72px]">
         <Hero />
         <VisionSection />
-        <CapabilitiesSection />
+        <FeaturesSection />
         <AboutSection />
         <AchievementsSection />
         <ContactSection />

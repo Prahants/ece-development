@@ -1,9 +1,49 @@
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin, Building2, CheckCircle2, Send, ShieldCheck, Zap, Globe2, User, Tag, MessageCircle } from 'lucide-react';
+import { Mail, Phone, MapPin, Building2, CheckCircle2, Send, ShieldCheck, Zap, Globe2, User, Tag, MessageCircle, Loader2 } from 'lucide-react';
 import founderImage from '../assets/founder.png';
 import logoImage from '../assets/logo.png';
 
 export const ContactSection = () => {
+  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setStatus('loading');
+
+    const formData = new FormData(e.currentTarget);
+    const data = {
+      name: formData.get('name'),
+      email: formData.get('email'),
+      subject: formData.get('subject'),
+      message: formData.get('message')
+    };
+
+    try {
+      const response = await fetch('http://localhost:3000/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (response.ok) {
+        setStatus('success');
+        (e.target as HTMLFormElement).reset();
+      } else {
+        setStatus('error');
+      }
+    } catch (error) {
+      console.error('Submission failed', error);
+      setStatus('error');
+    }
+    
+    // Reset status after a few seconds if successful or error
+    setTimeout(() => {
+      setStatus('idle');
+    }, 5000);
+  };
   return (
     <section id="contact" className="relative w-full max-w-[1400px] mx-auto px-4 sm:px-8 py-16 md:py-32 z-20 overflow-hidden">
 
@@ -179,13 +219,16 @@ export const ContactSection = () => {
               </p>
             </div>
 
-            <form className="space-y-4" onSubmit={(e) => { e.preventDefault(); alert("Thank you! Your message has been sent successfully."); }}>
+            <form className="space-y-4" onSubmit={handleSubmit}>
               <div className="relative">
                 <input
                   type="text"
+                  name="name"
                   id="name"
-                  className="w-full px-4 py-3.5 rounded-xl bg-gray-50 border border-gray-200 focus:bg-white focus:border-[#5a4fcf] focus:ring-2 focus:ring-indigo-100 outline-none transition-all text-sm text-gray-900 font-medium placeholder:text-gray-400"
+                  required
+                  className="w-full px-4 py-3.5 rounded-xl bg-gray-50 border border-gray-200 focus:bg-white focus:border-[#5a4fcf] focus:ring-2 focus:ring-indigo-100 outline-none transition-all text-sm text-gray-900 font-medium placeholder:text-gray-400 disabled:opacity-70"
                   placeholder="Your Name"
+                  disabled={status === 'loading'}
                 />
                 <User className="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
               </div>
@@ -193,9 +236,12 @@ export const ContactSection = () => {
               <div className="relative">
                 <input
                   type="email"
+                  name="email"
                   id="email"
-                  className="w-full px-4 py-3.5 rounded-xl bg-gray-50 border border-gray-200 focus:bg-white focus:border-[#5a4fcf] focus:ring-2 focus:ring-indigo-100 outline-none transition-all text-sm text-gray-900 font-medium placeholder:text-gray-400"
+                  required
+                  className="w-full px-4 py-3.5 rounded-xl bg-gray-50 border border-gray-200 focus:bg-white focus:border-[#5a4fcf] focus:ring-2 focus:ring-indigo-100 outline-none transition-all text-sm text-gray-900 font-medium placeholder:text-gray-400 disabled:opacity-70"
                   placeholder="Your Email"
+                  disabled={status === 'loading'}
                 />
                 <Mail className="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
               </div>
@@ -203,9 +249,11 @@ export const ContactSection = () => {
               <div className="relative">
                 <input
                   type="text"
+                  name="subject"
                   id="subject"
-                  className="w-full px-4 py-3.5 rounded-xl bg-gray-50 border border-gray-200 focus:bg-white focus:border-[#5a4fcf] focus:ring-2 focus:ring-indigo-100 outline-none transition-all text-sm text-gray-900 font-medium placeholder:text-gray-400"
+                  className="w-full px-4 py-3.5 rounded-xl bg-gray-50 border border-gray-200 focus:bg-white focus:border-[#5a4fcf] focus:ring-2 focus:ring-indigo-100 outline-none transition-all text-sm text-gray-900 font-medium placeholder:text-gray-400 disabled:opacity-70"
                   placeholder="Subject"
+                  disabled={status === 'loading'}
                 />
                 <Tag className="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
               </div>
@@ -213,18 +261,41 @@ export const ContactSection = () => {
               <div className="relative">
                 <textarea
                   id="message"
+                  name="message"
+                  required
                   rows={4}
-                  className="w-full px-4 py-3.5 rounded-xl bg-gray-50 border border-gray-200 focus:bg-white focus:border-[#5a4fcf] focus:ring-2 focus:ring-indigo-100 outline-none transition-all text-sm text-gray-900 resize-none font-medium placeholder:text-gray-400"
+                  className="w-full px-4 py-3.5 rounded-xl bg-gray-50 border border-gray-200 focus:bg-white focus:border-[#5a4fcf] focus:ring-2 focus:ring-indigo-100 outline-none transition-all text-sm text-gray-900 resize-none font-medium placeholder:text-gray-400 disabled:opacity-70"
                   placeholder="Your Message"
+                  disabled={status === 'loading'}
                 ></textarea>
                 <MessageCircle className="absolute right-4 top-4 w-4 h-4 text-gray-400" />
               </div>
 
+              {status === 'success' && (
+                <div className="p-3 bg-green-50 border border-green-200 text-green-700 text-sm rounded-xl font-medium text-center">
+                  Message sent successfully! We'll be in touch soon.
+                </div>
+              )}
+
+              {status === 'error' && (
+                <div className="p-3 bg-red-50 border border-red-200 text-red-700 text-sm rounded-xl font-medium text-center">
+                  Failed to send message. Please try again.
+                </div>
+              )}
+
               <button
                 type="submit"
-                className="w-full mt-2 inline-flex items-center justify-center gap-2 bg-[#5a4fcf] hover:bg-[#4a40b8] text-white px-8 py-3.5 rounded-xl font-bold text-sm shadow-lg shadow-indigo-200 hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 cursor-pointer"
+                disabled={status === 'loading' || status === 'success'}
+                className="w-full mt-2 inline-flex items-center justify-center gap-2 bg-[#5a4fcf] hover:bg-[#4a40b8] disabled:bg-indigo-300 text-white px-8 py-3.5 rounded-xl font-bold text-sm shadow-lg shadow-indigo-200 hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 cursor-pointer disabled:cursor-not-allowed"
               >
-                Send Message
+                {status === 'loading' ? (
+                  <>
+                    <Loader2 className="w-4 h-4 animate-spin" />
+                    Sending...
+                  </>
+                ) : (
+                  'Send Message'
+                )}
               </button>
             </form>
           </div>
