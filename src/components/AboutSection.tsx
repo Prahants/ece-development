@@ -7,7 +7,7 @@ export const AboutSection = () => {
   return (
     <section id="about" className="relative w-full max-w-[1400px] mx-auto px-4 sm:px-8 py-16 md:py-32 z-20">
 
-      {/* Centered Header */}
+      
       <div className="flex flex-col items-center text-center mb-16 md:mb-20">
         <motion.span
           initial={{ opacity: 0, y: 10 }}
