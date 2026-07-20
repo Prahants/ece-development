@@ -95,7 +95,7 @@ export const ContactSection = () => {
 
             <div className="space-y-6">
               <a
-                href="https://mail.google.com/mail/?view=cm&fs=1&to=krishnabhargavaa@gmail.com&su=Inquiry%20from%20Evolutionary%20Computation%20Enterprises%20Website&body=Hello%20Evolutionary%20Computation%20Enterprises%20Team,%0A%0AI%20would%20like%20to%20learn%20more%20about%20your%20services%20and%20opportunities%20for%20collaboration.%0A%0AName:%0AOrganization:%0AMessage:%0A%0ABest%20regards,"
+                href="https://mail.google.com/mail/?view=cm&fs=1&to=founderandceo.ece@gmail.com&su=Inquiry%20from%20Evolutionary%20Computation%20Enterprises%20Website&body=Hello%20Evolutionary%20Computation%20Enterprises%20Team,%0A%0AI%20would%20like%20to%20learn%20more%20about%20your%20services%20and%20opportunities%20for%20collaboration.%0A%0AName:%0AOrganization:%0AMessage:%0A%0ABest%20regards,"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-start gap-4 group cursor-pointer"
@@ -106,7 +106,7 @@ export const ContactSection = () => {
                 <div>
                   <p className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-1">Email</p>
                   <p className="text-sm font-semibold text-gray-900 group-hover:text-[#5a4fcf] transition-colors underline-offset-4 group-hover:underline break-all">
-                    krishnabhargavaa@gmail.com
+                    founderandceo.ece@gmail.com
                   </p>
                 </div>
               </a>
