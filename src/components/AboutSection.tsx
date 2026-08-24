@@ -25,7 +25,7 @@ export const AboutSection = () => {
           transition={{ duration: 0.6 }}
           className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 leading-[1.15] tracking-tight"
         >
-          Engineering Intelligence That Evolves
+          Deep Space Exploration That Evolves
         </motion.h2>
       </div>
 
@@ -70,7 +70,7 @@ export const AboutSection = () => {
             <div className="flex gap-3 items-start border-t border-gray-100 pt-4">
               <Quote className="w-5 h-5 text-purple-300 flex-shrink-0 mt-0.5" />
               <p className="text-sm text-gray-600 font-medium italic leading-relaxed">
-                "Leading ECE with a vision to bring Artificial Intelligence to Life through the principles of Evolutionary Computation."
+                "TO EXPLORE THE UNIVERSE, USING THE POWER OF EVOLUTIONARY COMPUTATION!"
               </p>
             </div>
           </motion.div>
@@ -117,7 +117,7 @@ export const AboutSection = () => {
                   To bring Artificial Intelligence to Life using the power of Evolutionary Computation.
                 </p>
                 <p>
-                  We develop intelligent, adaptive, and transformative technologies that go beyond conventional approaches to AI, enabling the next generation of computational innovation.
+                  We develop deep space exploration technologies that go beyond conventional approaches to space exploration, enabling the next generation of computational innovation.
                 </p>
               </div>
             </motion.div>
@@ -136,7 +136,7 @@ export const AboutSection = () => {
                 <h3 className="text-base font-bold text-gray-900">Our Vision</h3>
               </div>
               <p className="text-[13px] text-gray-500 leading-[1.6] flex-grow mt-1">
-                To pioneer evolutionary and biologically inspired computational systems that bridge the gap between artificial intelligence and the living world, shaping a future where intelligent technologies evolve alongside human needs and aspirations.
+                To pioneer evolutionary deep space exploration.
               </p>
             </motion.div>
           </div>
