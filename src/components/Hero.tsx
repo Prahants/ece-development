@@ -34,8 +34,8 @@ export const Hero = () => {
               USING THE POWER OF <span className="text-primary">EVOLUTIONARY COMPUTATION</span>!
             </p>
             <p className="text-gray-500 text-sm sm:text-base max-w-md">
-              We evolve intelligent, adaptive, and conscious AI systems
-              that learn, adapt, and grow beyond imagination
+              EVOLUTIONARY COMPUTATION ENTERPRISES
+              DEEP SPACE EXPLORATION COMPANY
             </p>
           </motion.div>
         </div>
