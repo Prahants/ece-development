@@ -30,8 +30,8 @@ export const Hero = () => {
             className="text-gray-600 text-base sm:text-lg leading-relaxed"
           >
             <p className="font-semibold mb-3 text-lg sm:text-xl">
-              To bring Artificial Intelligence to <span className="text-primary">Life</span>, <br className="hidden sm:block" />
-              using the power of <span className="text-primary">Evolutionary Computation</span>!
+              TO EXPLORE THE <span className="text-primary">UNIVERSE</span>, <br className="hidden sm:block" />
+              USING THE POWER OF <span className="text-primary">EVOLUTIONARY COMPUTATION</span>!
             </p>
             <p className="text-gray-500 text-sm sm:text-base max-w-md">
               We evolve intelligent, adaptive, and conscious AI systems
