@@ -36,6 +36,15 @@ export const Hero = () => {
             <p className="text-gray-500 text-sm sm:text-base max-w-md">
               EVOLUTIONARY COMPUTATION ENTERPRISES
               DEEP SPACE EXPLORATION COMPANY
+              Deep-space exploration
+              Evolutionary Computation
+              Space technology
+              Autonomous exploration
+              Mission optimisation
+              Planetary exploration
+              Asteroids and other celestial bodies
+              Long-duration space missions
+              Exploration of the Universe
             </p>
           </motion.div>
         </div>
